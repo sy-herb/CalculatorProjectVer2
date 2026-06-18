@@ -21,6 +21,7 @@ public class CalculatorStep1 {
             int num2 = sc.nextInt();
             if (num2 < 0) {
                 System.out.println("0을 포함한 양의 정수만 입력 가능합니다.");
+                continue;
             }
 
             System.out.print("연산 기호(+ - * /)를 입력하세요. : ");
