@@ -29,6 +29,7 @@ public class AppLv2 {
             Integer result = calculator.Calculate(num1, num2, oper);
 
             System.out.println("결과 : " + result);
+            System.out.println("");
 
             System.out.println("현재 저장된 결과 : " + calculator.getResult());
 
