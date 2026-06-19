@@ -18,8 +18,9 @@ public enum OperatorType {
     },
     DIV('/') {
         public double apply (double num1, double num2) {
-            if (num2 == 0)
-                System.out.println("0으로는 나눌 수 없습니다.");
+            if (num2 == 0){
+                throw new IllegalArgumentException("0으로 나눌 수 없습니다.");
+            }
             return num1 /num2;
         }
     };
