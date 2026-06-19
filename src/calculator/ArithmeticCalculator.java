@@ -12,13 +12,18 @@ public class ArithmeticCalculator {
 
         double result = op.apply(num1.doubleValue(), num2.doubleValue());
 
-        if (num1 instanceof Integer && num2 instanceof Integer) {
-            results.add((int) result);   // 정수로 저장
-            return (int) result;
-        } else {
-            results.add(result);         // 실수로 저장
-            return result;
+        if (operator == '/' && num1 instanceof Integer && num2 instanceof Integer) {
+            if (num1.intValue() % num2.intValue() == 0) {
+                int intResult = (int) result;
+                results.add(intResult);
+                return intResult;
+            }
         }
+
+        // 소수점 첫째 자리까지만 반올림
+        double rounded = Math.round(result * 10) / 10.0;
+        results.add(rounded);
+        return rounded;
     }
 
     public List<Number> getResult() {
