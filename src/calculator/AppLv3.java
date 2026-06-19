@@ -10,7 +10,7 @@ public class AppLv3 {
 
 
         while (!exit.equals("exit")) {
-            System.out.print("첫 번째 정수를 입력하세요. : ");
+            System.out.print("첫 번째 숫자를 입력하세요. : ");
             String input1 = sc.next();
             Number num1;
             if (input1.contains(".")) {
@@ -23,13 +23,13 @@ public class AppLv3 {
                 continue;
             }
 
-            System.out.print("두 번째 정수를 입력하세요. : ");
+            System.out.print("두 번째 숫자를 입력하세요. : ");
             String input2 = sc.next();
             Number num2;
             if (input2.contains(".")) {
-                num2 = Double.parseDouble(input1);
+                num2 = Double.parseDouble(input2);
             } else {
-                num2 = Integer.parseInt(input1);
+                num2 = Integer.parseInt(input2);
             }
             if (num2.doubleValue() < 0) {
                 System.out.println("0을 포함한 양의 정수만 입력 가능합니다.");
@@ -40,6 +40,11 @@ public class AppLv3 {
             char oper = sc.next().charAt(0);
 
             Double result = calculator.calculate(num1, num2, oper);
+            if (num1 instanceof Integer && num2 instanceof Integer) {
+                System.out.println("결과: " + result.intValue());
+            } else {
+                System.out.println("결과: " + result);
+            }
 
             System.out.println("결과 : " + result);
             System.out.println("");
