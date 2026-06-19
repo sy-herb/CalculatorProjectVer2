@@ -4,20 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArithmeticCalculator {
-    private List<Double> results = new ArrayList<>();
+    private List<Number> results = new ArrayList<>();
 
-    public <A extends Number> Double calculate (A num1, A num2, char operator) {
+    public <A extends Number> Number calculate (A num1, A num2, char operator) {
 
         OperatorType op = OperatorType.fromChar(operator);
 
         double result = op.apply(num1.doubleValue(), num2.doubleValue());
 
-        results.add(result);
-
-        return result;
+        if (num1 instanceof Integer && num2 instanceof Integer) {
+            results.add((int) result);   // 정수로 저장
+            return (int) result;
+        } else {
+            results.add(result);         // 실수로 저장
+            return result;
+        }
     }
 
-    public List<Double> getResult() {
+    public List<Number> getResult() {
 
         return results;
     }
