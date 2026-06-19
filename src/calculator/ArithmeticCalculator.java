@@ -12,6 +12,12 @@ public class ArithmeticCalculator {
 
         double result = op.apply(num1.doubleValue(), num2.doubleValue());
 
+        if (operator != '/' && num1 instanceof Integer && num2 instanceof Integer) {
+            int intResult = (int) result;
+            results.add(intResult);
+            return intResult;
+        }
+
         if (operator == '/' && num1 instanceof Integer && num2 instanceof Integer) {
             if (num1.intValue() % num2.intValue() == 0) {
                 int intResult = (int) result;

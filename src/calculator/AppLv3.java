@@ -40,10 +40,12 @@ public class AppLv3 {
             char oper = sc.next().charAt(0);
 
             Number result = calculator.calculate(num1, num2, oper);
-            if (num1 instanceof Integer && num2 instanceof Integer) {
+            if (result instanceof Integer) {
                 System.out.println("결과: " + result.intValue());
             } else {
-                System.out.println("결과: " + result);
+                // 소수점 첫째 자리까지만 반올림해서 출력
+                double rounded = Math.round(result.doubleValue() * 10) / 10.0;
+                System.out.println("결과: " + rounded);
             }
 
             System.out.println("현재 저장된 결과 : " + calculator.getResult());
