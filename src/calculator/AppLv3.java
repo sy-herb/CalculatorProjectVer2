@@ -50,14 +50,26 @@ public class AppLv3 {
 
             System.out.println("현재 저장된 결과 : " + calculator.getResult());
 
-            System.out.print("가장 오래된 결과를 삭제하시겠습니까 ? (yes 입력시 삭제됨)");
+            System.out.print("가장 오래된 결과를 삭제하시겠습니까 ? (yes 입력시 삭제됨) : ");
             String remove = sc.next();
             if (remove.equals("yes")) {
                 calculator.removeResult();
                 System.out.println("현재 남은 결과 : " + calculator.getResult());
             }
 
-            System.out.print("더 계산하시겠습니까 ? (exit 입력시 종료됨)");
+            System.out.print("조회 기능을 실행하시겠습니까? (yes 입력 시 실행) : ");
+            String answer = sc.next();
+
+            if (answer.equalsIgnoreCase("yes")) {
+                System.out.print("조회 기준값을 입력하세요: ");
+                double threshold = sc.nextDouble();
+                calculator.printGreaterThan(threshold);
+            } else {
+                System.out.println("조회 기능을 건너뜁니다.");
+            }
+
+
+            System.out.print("더 계산하시겠습니까 ? (exit 입력시 종료됨) : ");
             exit = sc.next();
             System.out.println("");
         }
