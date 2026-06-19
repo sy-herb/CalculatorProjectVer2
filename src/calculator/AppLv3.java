@@ -39,15 +39,12 @@ public class AppLv3 {
             System.out.print("연산 기호(+ - * /)를 입력하세요. : ");
             char oper = sc.next().charAt(0);
 
-            Double result = calculator.calculate(num1, num2, oper);
+            Number result = calculator.calculate(num1, num2, oper);
             if (num1 instanceof Integer && num2 instanceof Integer) {
                 System.out.println("결과: " + result.intValue());
             } else {
                 System.out.println("결과: " + result);
             }
-
-            System.out.println("결과 : " + result);
-            System.out.println("");
 
             System.out.println("현재 저장된 결과 : " + calculator.getResult());
 
